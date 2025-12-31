@@ -1,0 +1,37 @@
+{
+  "name": "Lerdo Travel Plaza",
+  "short_name": "Lerdo Plaza",
+  "description": "Clean fuel stop for professional drivers",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F9FA",
+  "theme_color": "#008751",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "travel"],
+  "shortcuts": [
+    {
+      "name": "Call Now",
+      "url": "/",
+      "description": "Call Lerdo Travel Plaza"
+    },
+    {
+      "name": "Get Directions",
+      "url": "/",
+      "description": "Navigate to Lerdo Travel Plaza"
+    }
+  ]
+}

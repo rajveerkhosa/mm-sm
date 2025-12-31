@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(npm init -y)",
+      "Bash(npm install next@latest react@latest react-dom@latest typescript @types/react @types/node @types/react-dom tailwindcss postcss autoprefixer lucide-react clsx tailwind-merge)",
+      "Bash(npm run build)",
+      "Bash(npm install -D @tailwindcss/postcss)",
+      "Bash(npm uninstall tailwindcss @tailwindcss/postcss)",
+      "Bash(npm install -D tailwindcss@3.4.17 autoprefixer@10.4.20)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
