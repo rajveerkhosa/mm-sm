@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { Navbar } from "@/components/features/Navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -14,25 +15,27 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lerdotravelcenter.com"),
   title: `${siteConfig.name} - Truck Stop in ${siteConfig.address.city}, CA`,
-  description: `${siteConfig.name} offers 24/7 diesel fuel, truck parking, showers, and amenities for professional drivers on Highway 99 in ${siteConfig.address.city}, California. Clean facilities, competitive fuel prices, and friendly service.`,
+  description: `${siteConfig.name} offers 24/7 diesel fuel, truck parking, and amenities for professional drivers at I-5 & Lerdo Hwy in ${siteConfig.address.city}, California. Home of Tandoori Nights authentic Indian cuisine and Chester's Chicken.`,
   keywords: [
     "truck stop",
     "diesel fuel",
     "truck parking",
-    "Lerdo CA",
-    "Highway 99",
+    "Buttonwillow CA",
+    "Lerdo Hwy",
+    "I-5 truck stop",
     "Sinclair fuel",
     "DEF",
-    "truck showers",
-    "CAT scales",
+    "Tandoori Nights",
+    "Chester's Chicken",
     "trucker amenities",
   ],
   authors: [{ name: siteConfig.name }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lerdotravelplaza.com", // EDIT: Update with actual domain
+    url: "https://lerdotravelcenter.com",
     title: siteConfig.name,
     description: siteConfig.tagline,
     siteName: siteConfig.name,
@@ -60,11 +63,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://lerdotravelplaza.com", // EDIT: Update with actual domain
+              "@id": "https://lerdotravelcenter.com",
               name: siteConfig.name,
               alternateName: siteConfig.alternativeName,
               description: siteConfig.tagline,
-              url: "https://lerdotravelplaza.com", // EDIT: Update with actual domain
+              url: "https://lerdotravelcenter.com",
               telephone: siteConfig.phone,
               email: siteConfig.email,
               address: {
@@ -96,7 +99,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${outfit.variable} font-sans`}>{children}</body>
+      <body className={`${inter.variable} ${outfit.variable} font-sans`}>
+        <a href="#main" className="skip-link">Skip to main content</a>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

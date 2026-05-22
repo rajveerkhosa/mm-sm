@@ -1,37 +1,53 @@
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
 import { Icon } from "@/components/ui/Icon";
-import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/config/site";
 
 export function AmenitiesGrid() {
   return (
-    <Section id="amenities" className="bg-cream">
-      <div className="text-center mb-16">
-        <div className="inline-block px-4 py-2 bg-sinclair-green-100 rounded-full mb-4">
-          <span className="text-sinclair-green-700 font-bold text-sm uppercase tracking-wide">Full Service</span>
+    <section id="amenities" className="bg-midnight-50 py-24 md:py-32 px-5 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div>
+            <p className="text-sinclair-green text-[11px] font-semibold uppercase tracking-[0.25em] mb-4">
+              Full Service
+            </p>
+            <h2 className="text-white leading-tight">
+              Everything You Need,<br />
+              <span className="text-white/40">One Stop.</span>
+            </h2>
+          </div>
+          <p className="text-white/40 text-base max-w-xs leading-relaxed">
+            Fuel, rest, food, and facilities for professional drivers at I-5 &amp; Lerdo Hwy.
+          </p>
         </div>
-        <h2 className="mb-6 text-navy">Amenities & Services</h2>
-        <p className="text-navy-light text-xl max-w-2xl mx-auto leading-relaxed">
-          Everything you need for a comfortable stop on the road
-        </p>
-      </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-7">
-        {siteConfig.amenities.map((amenity, index) => (
-          <Card key={index} className="text-center group">
-            <div className="flex flex-col items-center gap-4">
-              <div className="p-5 bg-gradient-to-br from-sinclair-green-100 to-sinclair-green-50 rounded-2xl group-hover:from-sinclair-green group-hover:to-sinclair-green-600 transition-all duration-300 shadow-md">
-                <Icon name={amenity.icon} className="text-sinclair-green group-hover:text-white transition-colors duration-300" size={32} />
+        {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3">
+          {siteConfig.amenities.map((amenity, i) => (
+            <div
+              key={i}
+              className="group relative flex flex-col items-start gap-4 p-6 md:p-7 rounded-2xl border border-white/[0.06] hover:border-sinclair-green/30 bg-midnight-100/50 hover:bg-sinclair-green/[0.05] transition-all duration-300 cursor-default overflow-hidden"
+            >
+              {/* Hover glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-sinclair-green/10 rounded-full blur-2xl" />
               </div>
-              <h4 className="font-bold text-base text-navy">{amenity.name}</h4>
-              <Badge variant={amenity.available ? "available" : "coming-soon"}>
-                {amenity.available ? "Available" : "Coming Soon"}
-              </Badge>
+
+              <div className="relative z-10 w-11 h-11 bg-white/[0.05] group-hover:bg-sinclair-green/20 border border-white/[0.08] group-hover:border-sinclair-green/30 rounded-xl flex items-center justify-center transition-all duration-300">
+                <Icon
+                  name={amenity.icon}
+                  className="text-white/40 group-hover:text-sinclair-green transition-colors duration-300"
+                  size={20}
+                />
+              </div>
+
+              <span className="relative z-10 font-semibold text-white/60 group-hover:text-white/90 text-sm leading-tight transition-colors duration-300">
+                {amenity.name}
+              </span>
             </div>
-          </Card>
-        ))}
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

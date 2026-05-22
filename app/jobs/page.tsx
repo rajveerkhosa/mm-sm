@@ -1,135 +1,135 @@
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
-import { Section } from "@/components/ui/Section";
 import { Footer } from "@/components/features/Footer";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
-import { Check } from "lucide-react";
+import { Check, Phone, Navigation, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `Careers - ${siteConfig.name}`,
-  description: `Join our team at ${siteConfig.name}. We're hiring for multiple positions. Competitive pay, benefits, and a great work environment.`,
+  description: `Join our team at ${siteConfig.name}. We're hiring friendly, dependable people to help run the plaza.`,
 };
 
+const benefits = [
+  "Competitive wages",
+  "Paid time off",
+  "Flexible scheduling",
+  "Employee meal & store discounts",
+  "Friendly team environment",
+  "Growth opportunities",
+];
+
+const positions = [
+  {
+    title: "Cashier / Store Clerk",
+    type: "Full-time / Part-time",
+    description: "Handle customer transactions, stock shelves, and help keep the store and fuel area clean and welcoming. Friendly attitude and reliability are what we look for most.",
+  },
+];
+
 export default function JobsPage() {
-  const benefits = [
-    "Competitive wages",
-    "Health insurance options",
-    "Paid time off",
-    "Flexible scheduling",
-    "Employee discounts",
-    "Growth opportunities",
-  ];
-
-  const positions = [
-    {
-      title: "Fuel Attendant",
-      type: "Full-time / Part-time",
-      description: "Assist customers with fueling, maintain pump area cleanliness, and ensure safety procedures.",
-    },
-    {
-      title: "Cashier / Store Clerk",
-      type: "Full-time / Part-time",
-      description: "Handle customer transactions, stock shelves, and maintain store appearance.",
-    },
-    {
-      title: "Kitchen Staff",
-      type: "Full-time / Part-time",
-      description: "Prepare hot food, maintain food safety standards, and ensure kitchen cleanliness.",
-    },
-    {
-      title: "Maintenance Technician",
-      type: "Full-time",
-      description: "Maintain facility equipment, perform repairs, and ensure facility operations.",
-    },
-  ];
-
   return (
-    <main>
+    <main id="main" tabIndex={-1} className="bg-midnight">
       {/* Header */}
-      <section className="bg-charcoal text-white py-16 px-4 md:px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="mb-4">Join Our Team</h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-6">
-            We're always looking for great people to join the {siteConfig.name} family
-          </p>
-          <div className="inline-block px-6 py-3 bg-sinclair-green rounded-lg text-2xl font-bold">
-            NOW HIRING
+      <section className="pt-36 pb-20 px-5 md:px-8 border-b border-white/[0.06]">
+        <div className="max-w-7xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sinclair-green/25 bg-sinclair-green/8 mb-8">
+            <div className="w-1.5 h-1.5 rounded-full bg-sinclair-green animate-pulse" />
+            <span className="text-sinclair-green text-[11px] font-semibold uppercase tracking-[0.2em]">Now Hiring</span>
           </div>
+          <h1
+            className="font-black text-white leading-tight mb-6"
+            style={{ fontSize: "clamp(40px, 7vw, 80px)" }}
+          >
+            Join Our<br />
+            <span className="text-white/55">Team.</span>
+          </h1>
+          <p className="text-white/40 text-lg max-w-md">
+            We&apos;re always looking for great people to join the {siteConfig.name} family.
+          </p>
         </div>
       </section>
 
       {/* Benefits */}
-      <Section>
-        <div className="text-center mb-12">
-          <h2 className="mb-4">Why Work With Us?</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We offer competitive benefits and a supportive work environment
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {benefits.map((benefit, index) => (
-            <Card key={index}>
-              <div className="flex items-center gap-3">
-                <Check className="text-sinclair-green flex-shrink-0" size={24} />
-                <span className="text-lg font-semibold">{benefit}</span>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      {/* Available Positions */}
-      <Section className="bg-white">
-        <div className="text-center mb-12">
-          <h2 className="mb-4">Open Positions</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore our current job openings
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {positions.map((position, index) => (
-            <Card key={index}>
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-sinclair-green/10 rounded-full">
-                  <Icon name="door-open" className="text-sinclair-green" size={24} />
+      <section className="py-20 px-5 md:px-8 border-b border-white/[0.06]">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-sinclair-green text-[11px] font-semibold uppercase tracking-[0.25em] mb-5">Why Work Here</p>
+          <h2 className="text-white mb-12">What We Offer</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {benefits.map((benefit, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-4 p-5 rounded-2xl border border-white/[0.06] bg-midnight-100/40"
+              >
+                <div className="w-6 h-6 rounded-full bg-sinclair-green/10 border border-sinclair-green/25 flex items-center justify-center flex-shrink-0">
+                  <Check className="text-sinclair-green" size={12} />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl mb-1">{position.title}</h3>
-                  <p className="text-sm text-gray-500 font-semibold">{position.type}</p>
-                </div>
+                <span className="text-white/60 font-medium text-sm">{benefit}</span>
               </div>
-              <p className="text-gray-700 mb-4">{position.description}</p>
-              <Button href={`tel:${siteConfig.phone}`} variant="primary" size="sm" className="w-full">
-                Call to Apply
-              </Button>
-            </Card>
-          ))}
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
-      {/* How to Apply */}
-      <Section className="bg-sinclair-green text-white text-center">
-        <h2 className="mb-6">Ready to Apply?</h2>
-        <p className="text-xl mb-8 max-w-2xl mx-auto">
-          Give us a call or stop by in person to fill out an application.
-          We're looking forward to meeting you!
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
-          <Button href={`tel:${siteConfig.phone}`} variant="secondary" size="lg" className="flex items-center justify-center gap-3">
-            <Icon name="phone" size={24} />
-            Call {siteConfig.phone}
-          </Button>
-          <Button href={siteConfig.mapsUrl} variant="outline" size="lg" className="bg-white text-sinclair-green border-white hover:bg-gray-100 flex items-center justify-center gap-3">
-            <Icon name="navigation" size={24} />
-            Get Directions
-          </Button>
+      {/* Open positions */}
+      <section className="py-20 px-5 md:px-8 border-b border-white/[0.06]">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-sinclair-green text-[11px] font-semibold uppercase tracking-[0.25em] mb-5">Open Role</p>
+          <h2 className="text-white mb-12">Now Hiring</h2>
+          <div className="max-w-2xl">
+            {positions.map((pos, i) => (
+              <div
+                key={i}
+                className="group flex flex-col p-8 rounded-2xl border border-white/[0.06] hover:border-sinclair-green/25 bg-midnight-100/30 hover:bg-sinclair-green/[0.03] transition-all duration-300"
+              >
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="text-white font-bold text-lg mb-1">{pos.title}</h3>
+                    <span className="text-sinclair-green text-xs font-medium uppercase tracking-wide">{pos.type}</span>
+                  </div>
+                </div>
+                <p className="text-white/40 text-sm leading-relaxed mb-6 flex-1">{pos.description}</p>
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="flex items-center justify-between gap-2 text-white/50 hover:text-white transition-colors text-sm font-medium group-hover:text-sinclair-green"
+                >
+                  <span className="flex items-center gap-2">
+                    <Phone size={14} />
+                    Call to Apply
+                  </span>
+                  <ArrowRight size={14} />
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 px-5 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="glass rounded-3xl p-10 md:p-14 text-center border border-white/[0.06]">
+            <h2 className="text-white mb-4">Ready to Apply?</h2>
+            <p className="text-white/40 text-lg mb-10 max-w-md mx-auto">
+              Give us a call or stop by in person to fill out an application.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={`tel:${siteConfig.phone}`}
+                className="inline-flex items-center justify-center gap-2 bg-sinclair-green hover:bg-sinclair-green-dark text-white font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:shadow-sinclair text-sm"
+              >
+                <Phone size={16} />
+                Call {siteConfig.phone}
+              </a>
+              <a
+                href={siteConfig.mapsUrl}
+                className="inline-flex items-center justify-center gap-2 border border-white/15 hover:border-white/30 text-white/60 hover:text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 text-sm"
+              >
+                <Navigation size={16} />
+                Get Directions
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </main>

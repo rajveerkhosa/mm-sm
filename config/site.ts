@@ -6,17 +6,17 @@ export const siteConfig = {
   tagline: "Clean fuel stop for professional drivers",
 
   // Contact Information
-  phone: "(555) 123-4567", // EDIT: Add your phone number
-  email: "info@lerdotravelplaza.com", // EDIT: Add your email
+  phone: "(661) 594-8090",
+  email: "lerdotc@gmail.com",
 
   // Location
   address: {
-    street: "1234 Highway 99", // EDIT: Add your street address
-    city: "Lerdo",
+    street: "24574 West Lerdo Hwy",
+    city: "Buttonwillow",
     state: "CA",
-    zip: "93352",
+    zip: "93206",
     coordinates: {
-      lat: 35.3619, // Lerdo, CA coordinates
+      lat: 35.3619,
       lng: -119.1012,
     },
   },
@@ -28,17 +28,18 @@ export const siteConfig = {
   ],
 
   // Google Maps
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=35.3619,-119.1012", // EDIT: Update with exact location
+  mapsUrl: "https://share.google/WtBhVihSPRv4BcNU0",
 
   // Fuel Pricing (update these regularly)
   fuelPrices: {
     car: {
-      unleaded: "$3.89", // EDIT: Update regularly
-      premium: "$4.19", // EDIT: Update regularly
+      unleaded: "$5.39", // 87 octane
+      premium: "$5.79",  // 91 octane
+      e85: "Call",       // E85 — call for current price
     },
     truck: {
-      diesel: "$4.29", // EDIT: Update regularly
-      def: "$3.49", // EDIT: Update regularly
+      diesel: "$6.37",
+      def: "$3.49",      // EDIT: Update regularly
     },
   },
 
@@ -67,24 +68,24 @@ export const siteConfig = {
       icon: "truck",
     },
     {
-      name: "Clean Showers",
-      available: true,
+      name: "Showers Coming Soon",
+      available: false,
       icon: "shower",
     },
     {
-      name: "Free Wi-Fi",
-      available: true,
-      icon: "wifi",
-    },
-    {
-      name: "Hot Food",
+      name: "Tandoori Nights Indian",
       available: true,
       icon: "utensils",
     },
     {
-      name: "CAT Scales",
+      name: "Chester's Chicken",
       available: true,
-      icon: "scale",
+      icon: "utensils",
+    },
+    {
+      name: "Hot Food Daily",
+      available: true,
+      icon: "utensils",
     },
     {
       name: "DEF at Pump",
@@ -95,7 +96,7 @@ export const siteConfig = {
 
   // Truck Parking
   parking: {
-    capacity: "50+ spaces", // EDIT: Update with actual capacity
+    capacity: "20+ spaces",
     policy: "First come, first served. No reservation required.",
     features: [
       "Well-lit parking area",
@@ -107,13 +108,13 @@ export const siteConfig = {
 
   // Food & Store
   store: {
-    name: "Trucker Deli & Grill", // EDIT: Update with actual name
-    description: "Hot meals, cold drinks, and everything you need on the road.",
+    name: "Tandoori Nights & Chester's Chicken",
+    description: "Authentic Indian cuisine from Tandoori Nights plus famous Chester's Chicken — all under one roof.",
     features: [
-      "Fresh hot food daily",
-      "Coffee bar",
-      "Grab-and-go options",
-      "Snacks and beverages",
+      "Tandoori Nights — authentic Indian dishes",
+      "Chester's Chicken — fresh fried chicken",
+      "Hot meals, snacks & cold drinks",
+      "Grab-and-go options 24/7",
     ],
   },
 
@@ -125,23 +126,19 @@ export const siteConfig = {
     },
     {
       question: "Do you have truck parking?",
-      answer: "Yes! We have 50+ truck parking spaces available on a first-come, first-served basis. No reservation needed.",
+      answer: "Yes! We have 20+ truck parking spaces available on a first-come, first-served basis. No reservation needed.",
     },
     {
       question: "What fuel do you offer?",
-      answer: "We offer high-flow diesel, unleaded gasoline, and DEF (Diesel Exhaust Fluid) at the pump.",
+      answer: "We offer 87 octane regular unleaded, 91 octane premium, E85, ultra low sulfur diesel, and DEF (Diesel Exhaust Fluid) at the pump.",
     },
     {
       question: "Do you have showers?",
-      answer: "Yes, we have clean shower facilities available 24/7 for professional drivers.",
+      answer: "Showers are coming soon to Lerdo Travel Plaza. Check back for updates.",
     },
     {
-      question: "Is there Wi-Fi available?",
-      answer: "Yes, we offer free Wi-Fi throughout the facility for all customers.",
-    },
-    {
-      question: "Do you have a scale?",
-      answer: "Yes, we have a CAT Scale on-site for weighing your vehicle.",
+      question: "What food do you have on-site?",
+      answer: "We're proud to host Tandoori Nights for authentic Indian cuisine and Chester's Chicken for fresh fried chicken — both serving daily.",
     },
   ],
 };

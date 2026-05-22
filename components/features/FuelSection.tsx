@@ -1,138 +1,110 @@
-import { Card } from "@/components/ui/Card";
 import { siteConfig } from "@/config/site";
-import { Car, Truck } from "lucide-react";
+import { Car, Truck, Zap } from "lucide-react";
+
+const carFuels = [
+  { name: "Regular Unleaded", octane: "87",   price: siteConfig.fuelPrices.car.unleaded },
+  { name: "Premium Unleaded", octane: "91+",  price: siteConfig.fuelPrices.car.premium  },
+  { name: "E85 Flex Fuel",    octane: "E85",  price: siteConfig.fuelPrices.car.e85      },
+];
+
+const truckFuels = [
+  { name: "Ultra Low Sulfur Diesel", octane: "ULSD", price: siteConfig.fuelPrices.truck.diesel },
+  { name: "Diesel Exhaust Fluid",    octane: "DEF",  price: siteConfig.fuelPrices.truck.def    },
+];
 
 export function FuelSection() {
-  const carFuels = [
-    {
-      name: "Regular Unleaded",
-      price: siteConfig.fuelPrices.car.unleaded,
-      label: "87",
-    },
-    {
-      name: "Premium",
-      price: siteConfig.fuelPrices.car.premium,
-      label: "91+",
-    },
-  ];
-
-  const truckFuels = [
-    {
-      name: "High-Flow Diesel",
-      price: siteConfig.fuelPrices.truck.diesel,
-      label: "ULSD",
-    },
-    {
-      name: "DEF at Pump",
-      price: siteConfig.fuelPrices.truck.def,
-      label: "DEF",
-    },
-  ];
-
   return (
-    <section id="fuel" className="relative py-24 md:py-32 px-4 md:px-6 overflow-hidden bg-navy">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-sinclair-green rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sinclair-red rounded-full blur-3xl"></div>
-      </div>
+    <section id="fuel" className="relative py-24 md:py-32 px-5 md:px-8 bg-midnight-50 overflow-hidden">
+      {/* Decorative glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-sinclair-green/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-sinclair-red/4 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block px-5 py-2 bg-sinclair-green/20 border-2 border-sinclair-green rounded-full mb-6">
-            <span className="text-sinclair-green font-bold text-sm uppercase tracking-wider">Live Fuel Pricing</span>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sinclair-green/25 bg-sinclair-green/8 mb-6">
+            <Zap size={12} className="text-sinclair-green" />
+            <span className="text-sinclair-green text-[11px] font-semibold uppercase tracking-[0.2em]">Live Fuel Pricing</span>
           </div>
-          <h2 className="mb-6 text-white font-display">Today's Fuel Prices</h2>
-          <p className="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed">
-            Competitive pricing for both cars and commercial vehicles
+          <h2 className="text-white mb-4">Today&apos;s Prices</h2>
+          <p className="text-white/55 text-base max-w-md mx-auto">
+            Competitive rates for passenger vehicles and commercial trucks.
           </p>
         </div>
 
-        {/* Two-column layout for Cars and Trucks */}
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 max-w-6xl mx-auto">
-          {/* Cars Section */}
-          <div className="relative">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20">
-              <div className="flex items-center gap-3 bg-sinclair-green px-6 py-3 rounded-2xl shadow-sinclair-lg">
-                <Car className="text-white" size={28} />
-                <span className="text-white font-bold text-xl font-display">For Cars</span>
-              </div>
+        {/* Price boards */}
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
+          {/* Car board */}
+          <div className="rounded-2xl border border-white/[0.06] overflow-hidden bg-midnight-100">
+            <div className="flex items-center gap-3 px-7 py-5 border-b border-white/[0.05] bg-sinclair-green/8">
+              <Car size={18} className="text-sinclair-green" />
+              <span className="text-white font-semibold text-sm uppercase tracking-widest">Passenger Vehicles</span>
             </div>
-
-            <div className="pt-12 pb-8 px-6 md:px-8 bg-white/5 backdrop-blur-md border-2 border-white/10 rounded-3xl">
-              <div className="space-y-6">
-                {carFuels.map((fuel, index) => (
-                  <div key={index} className="relative group">
-                    <div className="flex items-center justify-between p-6 bg-white/10 rounded-2xl border border-white/20 hover:border-sinclair-green/50 transition-all duration-300">
-                      <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 bg-sinclair-green/20 rounded-xl flex items-center justify-center">
-                          <span className="text-sinclair-green font-black text-lg">{fuel.label}</span>
-                        </div>
-                        <div>
-                          <h4 className="text-white font-bold text-lg mb-1">{fuel.name}</h4>
-                          <p className="text-gray-400 text-sm">per gallon</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-4xl md:text-5xl font-black text-sinclair-green font-display">
-                          {fuel.price}
-                        </p>
-                      </div>
+            <div className="p-4 space-y-3">
+              {carFuels.map((fuel, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between p-5 rounded-xl border border-white/[0.04] hover:border-sinclair-green/20 hover:bg-sinclair-green/[0.04] transition-all duration-200 group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-sinclair-green/10 border border-sinclair-green/15 flex items-center justify-center flex-shrink-0">
+                      <span className="text-sinclair-green font-black text-xs">{fuel.octane}</span>
+                    </div>
+                    <div>
+                      <p className="text-white/80 font-medium text-sm">{fuel.name}</p>
+                      <p className="text-white/55 text-xs">per gallon</p>
                     </div>
                   </div>
-                ))}
-              </div>
+                  <div className="text-3xl md:text-4xl font-black text-sinclair-green font-display tracking-tight">
+                    {fuel.price}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Trucks Section */}
-          <div className="relative">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20">
-              <div className="flex items-center gap-3 bg-sinclair-red px-6 py-3 rounded-2xl shadow-xl">
-                <Truck className="text-white" size={28} />
-                <span className="text-white font-bold text-xl font-display">For Trucks</span>
-              </div>
+          {/* Truck board */}
+          <div className="rounded-2xl border border-white/[0.06] overflow-hidden bg-midnight-100">
+            <div className="flex items-center gap-3 px-7 py-5 border-b border-white/[0.05] bg-white/[0.03]">
+              <Truck size={18} className="text-gold" />
+              <span className="text-white font-semibold text-sm uppercase tracking-widest">Commercial Trucks</span>
             </div>
-
-            <div className="pt-12 pb-8 px-6 md:px-8 bg-white/5 backdrop-blur-md border-2 border-white/10 rounded-3xl">
-              <div className="space-y-6">
-                {truckFuels.map((fuel, index) => (
-                  <div key={index} className="relative group">
-                    <div className="flex items-center justify-between p-6 bg-white/10 rounded-2xl border border-white/20 hover:border-sinclair-red/50 transition-all duration-300">
-                      <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 bg-sinclair-red/20 rounded-xl flex items-center justify-center">
-                          <span className="text-sinclair-red font-black text-sm">{fuel.label}</span>
-                        </div>
-                        <div>
-                          <h4 className="text-white font-bold text-lg mb-1">{fuel.name}</h4>
-                          <p className="text-gray-400 text-sm">per gallon</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-4xl md:text-5xl font-black text-sinclair-red font-display">
-                          {fuel.price}
-                        </p>
-                      </div>
+            <div className="p-4 space-y-3">
+              {truckFuels.map((fuel, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between p-5 rounded-xl border border-white/[0.04] hover:border-gold/20 hover:bg-gold/[0.03] transition-all duration-200 group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-gold/10 border border-gold/15 flex items-center justify-center flex-shrink-0">
+                      <span className="text-gold font-black text-xs">{fuel.octane}</span>
+                    </div>
+                    <div>
+                      <p className="text-white/80 font-medium text-sm">{fuel.name}</p>
+                      <p className="text-white/55 text-xs">per gallon</p>
                     </div>
                   </div>
-                ))}
-              </div>
+                  <div className="text-3xl md:text-4xl font-black text-gold font-display tracking-tight">
+                    {fuel.price}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Sinclair Badge */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur px-6 py-4 rounded-2xl border border-white/20 mb-6">
-            <div className="w-3 h-3 bg-sinclair-green rounded-full animate-pulse"></div>
-            <span className="text-white font-semibold">Proud Sinclair Fuel Partner</span>
-          </div>
-          <p className="text-gray-400 text-sm">
-            Prices updated regularly. Call for current pricing:{" "}
-            <a href={`tel:${siteConfig.phone}`} className="text-sinclair-green hover:text-sinclair-green-400 font-bold transition-colors">
-              {siteConfig.phone}
+        {/* Footer note */}
+        <div className="text-center mt-10">
+          <div className="inline-flex items-center gap-2 text-white/55 text-sm">
+            <div className="w-1.5 h-1.5 rounded-full bg-sinclair-green animate-pulse" />
+            Prices updated regularly —{" "}
+            <a
+              href={`tel:${siteConfig.phone}`}
+              className="text-sinclair-green hover:text-sinclair-green-light transition-colors font-medium"
+            >
+              call for current rates
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </section>
